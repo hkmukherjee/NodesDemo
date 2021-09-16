@@ -1,32 +1,40 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const yargs = require('yargs');
+const _03_fsModule_1 = require("./03-fsModule");
+const uuid_1 = require("uuid");
 yargs.command({
     command: 'add',
     describe: 'Adding new note',
     handler: (argv) => {
-        console.log('Success! new note added.', JSON.stringify({ title: argv.title, body: argv.body }));
+        //saving note to assets/notes.json
+        (0, _03_fsModule_1.addNote)({
+            id: (0, uuid_1.v4)(),
+            title: argv.title,
+            body: argv.body
+        });
     }
 });
 yargs.command({
     command: 'remove',
     describe: 'Removing a note',
-    handler: () => {
-        console.log('Note removed.');
+    handler: (argv) => {
+        //removing note form assets/notes.json
+        (0, _03_fsModule_1.removeNote)(argv.id);
     }
 });
 yargs.command({
     command: 'read',
     describe: 'Reading a note',
-    handler: () => {
-        console.log('Get a note.');
+    handler: (argv) => {
+        (0, _03_fsModule_1.readNote)(argv.id, (note) => console.log(note));
     }
 });
 yargs.command({
     command: 'list',
     describe: 'List all notes',
     handler: () => {
-        console.log('Get list of all notes.');
+        (0, _03_fsModule_1.readNotes)((notes) => console.log(notes));
     }
 });
 console.log(yargs.argv);

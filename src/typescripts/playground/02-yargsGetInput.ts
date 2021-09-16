@@ -1,27 +1,35 @@
 const yargs = require('yargs');
-import {IArgument} from './IArgument';
+import {INote} from './interfaces/INote';
+import {addNote, readNote, readNotes, removeNote} from './03-fsModule';
+import {v4 as uuidv4} from 'uuid';
 
 yargs.command({
     command: 'add',
     describe: 'Adding new note',
-    handler: (argv: IArgument) => {
-        console.log('Success! new note added.', JSON.stringify({title: argv.title, body: argv.body}));
+    handler: (argv: INote) => {
+        //saving note to assets/notes.json
+        addNote({
+            id: uuidv4(), 
+            title: argv.title,
+            body: argv.body
+        });
     }
 });
 
 yargs.command({
     command: 'remove',
     describe: 'Removing a note',
-    handler: () => {
-        console.log('Note removed.');
+    handler: (argv: INote) => {
+        //removing note form assets/notes.json
+        removeNote(argv.id);
     }
 });
 
 yargs.command({
     command: 'read',
     describe: 'Reading a note',
-    handler: () => {
-        console.log('Get a note.');
+    handler: (argv: INote) => {        
+        readNote(argv.id, (note) => console.log(note));
     }
 });
 
@@ -29,7 +37,7 @@ yargs.command({
     command: 'list',
     describe: 'List all notes',
     handler: () => {
-        console.log('Get list of all notes.');
+        readNotes((notes) => console.log(notes));
     }
 });
 
