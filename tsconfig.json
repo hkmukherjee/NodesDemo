@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es2017",
+        "outDir": "src/build",
+        "rootDir": "src/typescripts",
+        "jsx": "react"      
+    },
+    "include": [
+          "src/typescripts"
+    ],
+    "exclude": [
+        "src/typescripts/tests"
+    ]
+}
