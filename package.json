@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "description": "Learning about node js",
   "main": "index.js",
-  "scripts": {    
+  "scripts": {
     "test": "jest",
-    "start": "node src/typescripts/server/server.ts"
+    "build-tsc": "tsc",
+    "start": "node src/build/server/server.js"
   },
   "repository": {
     "type": "git",
@@ -25,7 +26,8 @@
     "typescript": "^4.4.2",
     "webpack": "^5.51.2",
     "webpack-cli": "^4.8.0",
-    "webpack-dev-server": "^4.1.0"
+    "webpack-dev-server": "^4.1.0",
+    "yargs": "^17.1.1"
   },
   "dependencies": {
     "express": "^4.17.1",
