@@ -53,3 +53,15 @@ export const readNote = (id: string, callback) => {
         callback(result);
     });
 }
+
+/*************************
+**Help with terminal command
+-build
+    npm run build-tsc -- --watch
+-execute
+    node src/build/playground/02-yargsGetInput.js --help
+    node src/build/playground/02-yargsGetInput.js add --title='second note' --body='Second note to add'
+    node src/build/playground/02-yargsGetInput.js remove --id <Id from assets/notes.json>'
+    node src/build/playground/02-yargsGetInput.js read --id <Id from assets/notes.json>'
+    node src/build/playground/02-yargsGetInput.js list
+*************************/

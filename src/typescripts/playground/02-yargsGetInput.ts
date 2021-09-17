@@ -50,4 +50,7 @@ console.log(yargs.argv);
 -execute
     node src/build/playground/02-yargsGetInput.js --help
     node src/build/playground/02-yargsGetInput.js add --title='second note' --body='Second note to add'
+    node src/build/playground/02-yargsGetInput.js remove --id='<Id from assets/notes.json>'
+    node src/build/playground/02-yargsGetInput.js read --id='<Id from assets/notes.json>'
+    node src/build/playground/02-yargsGetInput.js list
 *************************/
