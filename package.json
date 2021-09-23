@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest",
     "build-tsc": "tsc",
-    "start": "node src/build/server/server.js"
+    "start": "node src/build/server/server.js",
+    "heroku-postbuild": "npm run build-tsc"
   },
   "repository": {
     "type": "git",
