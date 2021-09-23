@@ -7,7 +7,7 @@ app
 .get(
     '/weatherInfo/:location',
     (req, res) => {
-        res.setHeader("Access-Control-Allow-Origin", "*");
+        res.setHeader("Access-Control-Allow-Origin", "https://weather-app-react-ui.herokuapp.com");
         const location = req.params.location;
         getWeatherInfo(location, (data) => res.send(data));
     }
