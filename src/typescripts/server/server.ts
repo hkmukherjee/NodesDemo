@@ -7,6 +7,7 @@ app
 .get(
     '/weatherInfo/:location',
     (req, res) => {
+        res.setHeader("Access-Control-Allow-Origin", "*");
         const location = req.params.location;
         getWeatherInfo(location, (data) => res.send(data));
     }
